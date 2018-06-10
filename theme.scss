@@ -1,0 +1,113 @@
+@import "~normalize.css";
+@import "prismjs/themes/prism.css";
+@import "prismjs/themes/prism-twilight.css";
+@import "prismjs/plugins/toolbar/prism-toolbar.css";
+
+@import "./fonts.scss";
+@import "@material/theme/_color-palette";
+
+$mdc-typography-font-family: Source Serif Pro, Roboto, serif;
+
+$mdc-typography-styles-body1: (
+  font-weight: 300
+);
+
+$mdc-theme-primary: $material-color-blue-800;
+$mdc-theme-secondary: $material-color-pink-800;
+$mdc-theme-on-primary: white;
+$mdc-theme-on-secondary: white;
+$mdc-theme-surface: $material-color-lime-50;
+
+@import "@material/typography/mdc-typography";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/layout-grid/mdc-layout-grid";
+// @import "@material/drawer/mdc-drawer";
+
+
+
+ul.bar__navigation {
+  @include mdc-typography(overline);
+  list-style: none;
+
+  li {
+    display: inline;
+    padding-left: 10px;
+
+    a {
+      color: $mdc-theme-on-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h1 {
+    @include mdc-typography( headline2 );
+  }
+  h2 {
+    @include mdc-typography( headline3 );
+    font-family: Source Serif Pro, Roboto, serif;
+  }
+
+  p {
+    @include mdc-typography(body1);
+  }
+}
+// $body-fonts: Source Serif Pro, Helvetica, serif;
+//
+// $mdc-typography-styles-headline1: (
+//   font-family: $body-fonts
+// );
+//
+// $mdc-typography-styles-headline6: (
+//   font-family: $body-fonts
+// );
+// $mdc-typography-styles-body1: (
+// );
+//
+// @import "~normalize.css";
+// @import "@material/typography/mdc-typography";
+// @import "@material/top-app-bar/mdc-top-app-bar";
+// @import "@material/drawer/mdc-drawer";
+//
+// .mdc-top-app-bar {
+//   // @include mdc-top-app-bar-ink-color(black);
+//   // @include mdc-top-app-bar-fill-color(white);
+//   // @include mdc-top-app-bar-icon-ink-color(black);
+// }
+//
+// body {
+//   min-height: 100%;
+//   height: 1vh;
+// }
+//
+// .inline-flex {
+//   display: inline-flex;
+// }
+//
+// ul.bar__navigation {
+//   @include mdc-typography(overline);
+//   list-style: none;
+//
+//   li {
+//     display: inline;
+//     padding-left: 10px;
+//
+//     a {
+//       color: black;
+//       text-decoration: none;
+//
+//       &:hover {
+//         text-decoration: underline;
+//       }
+//     }
+//   }
+// }

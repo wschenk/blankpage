@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>This is my site</title>
+<link href="/css/bundle.css" rel="stylesheet">
+</head>
+
+<body class="mdc-typography">
+  <header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <!-- <button class="material-icons mdc-top-app-bar__navigation-icon">menu</button> -->
+        <span class="mdc-top-app-bar__title"><a href="/">{{.Site.Title}}</a> / {{ .Title }}</span>
+      </section>
+
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+        <ul class="bar__navigation">
+          <li><a class="mdc-top-app-bar__navigation-item" href="/articles">Archives</a></li>
+          <li><a class="mdc-top-app-bar__navigation-item" href="/about">About</a></li>
+        </ul>
+      </section>
+    </div>
+  </header>
+
+  <div class="mdc-top-app-bar--fixed-adjust">
+    {{ block "main" . }}
+      <h1>This is the default content in the baseof.html template</h1>
+    {{ end }}
+  </div>
+  <script src="/js/bundle.js"></script>
+</body>
+</html>

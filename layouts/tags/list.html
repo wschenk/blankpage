@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<div class="archives">
+  {{ $dateFormat := "Jan 2014" }}
+  {{ range .Data.Terms.ByCount }}
+    <h1><a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}">#{{ .Name }}</a> - ({{.Count}})</h1>
+  {{ end }}
+  {{ range .Data.Pages.ByDate.Reverse }}
+    <h2>
+      <time>{{ .Date.Format $dateFormat }}</time>
+      <a href='{{ .Permalink | relURL }}' class="title-link">{{- .Title -}}</a>
+    </h2>
+
+    {{ if .Params.tags }}
+      <div class="tagcontainer">
+        <span class="spacer"></span>
+        <ul>
+          {{ range .Params.tags }}
+            <li>
+              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>{{ .Title }}</title>
+  <link href="/css/bundle.css" rel="stylesheet">
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+</head>
+
+<body>
+  <div class="inline-flex">
+    <aside class="mdc-drawer mdc-drawer--persistent mdc-typography">
+      <nav class="mdc-drawer__drawer">
+        <header class="mdc-drawer__header">
+          <div class="mdc-drawer__header-content">
+            Header here
+          </div>
+        </header>
+        <nav class="mdc-drawer__content mdc-list">
+          <a class="mdc-list-item mdc-list-item--activated" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox
+          </a>
+          <a class="mdc-list-item" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star
+          </a>
+        </nav>
+      </nav>
+    </aside>
+
+    <div>
+      <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon">menu</button>
+            <span class="mdc-top-app-bar__title">{{ .Title }}</span>
+          </section>
+
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+            <ul class="bar__navigation">
+              <li><a class="mdc-top-app-bar__navigation-item" href="/archives">Archives</a></li>
+              <li><a class="mdc-top-app-bar__navigation-item" href="/about">About</a></li>
+            </ul>
+          </section>
+        </div>
+      </header>
+
+      <div class="mdc-top-app-bar--fixed-adjust content">
+        {{ block "main" . }}
+          <h1>This some default html</h1>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/bundle.js"></script>
+</body>
+</html>
